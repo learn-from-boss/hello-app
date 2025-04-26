@@ -4,7 +4,23 @@
   <groupId>com.ncpl.devops</groupId>
   <artifactId>hello-app</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+<distributionManagement>
+    <repository>
+        <id>nexus</id>
+        <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+</distributionManagement>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+  
+<version>1.0-SNAPSHOT</version>
   <name>hello-app</name>
   <url>http://maven.apache.org</url>
   <dependencies>
