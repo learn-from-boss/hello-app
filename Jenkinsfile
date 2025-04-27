@@ -28,7 +28,11 @@ pipeline {
 
         stage('Publish to Nexus') {
             steps {
-                sh 'mvn deploy'
+
+                configFileProvider([configFile(fileId: '475043e5-9b06-4ab5-82a0-213e1167069a', variable: 'nexus')]) {
+                     sh 'mvn -s $(nexus) deploy -DskipTests=true'
+                }
+               
             }
         }
     }
