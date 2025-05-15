@@ -30,7 +30,7 @@ pipeline {
             steps {
 
                 configFileProvider([configFile(fileId: '475043e5-9b06-4ab5-82a0-213e1167069a', variable: 'nexus')]) {
-                     sh 'mvn -s /home/boss/.m2/settings.xml deploy -DskipTests=true'
+                     sh 'mvn -s ~/.m2/settings.xml deploy -DskipTests=true'
                 }
                
             }
